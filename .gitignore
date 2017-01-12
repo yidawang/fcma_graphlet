@@ -87,3 +87,9 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# IntelliJ IDEA
+.idea/
+
+#data
+face_scene/
