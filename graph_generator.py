@@ -96,6 +96,9 @@ def generate_epochs_info(epoch_list):
     return epoch_info
 
 def generate_graph(raw_data, epoch_info, thres):
+    dir = './results'
+    if not os.path.exists(dir):
+        os.makedirs(dir)
     for idx, epoch in enumerate(epoch_info):
         label = epoch[0]
         sid = epoch[1]
@@ -116,15 +119,15 @@ def generate_graph(raw_data, epoch_info, thres):
         filename = str(label) + '_' + str(sid) + '_' + str(idx) + '.txt'
         logger.info(
             'in total %d pairs, writing to %s' %
-            ((len(indices[0])-mat.shape[0])/2, filename)
+            ((len(indices[0])-mat.shape[0])/2, os.path.join(dir, filename))
         )
-        fp = open(filename, 'w')
+        fp = open(os.path.join(dir, filename), 'w')
         for i in range(len(indices[0])):
                 if indices[0][i] < indices[1][i]:
                     fp.write(str(indices[0][i]) + ' ' + str(indices[1][i]) + '\n')
         fp.close()
 
-# python graph_generator.py face_scene/raw bet.nii.gz face_scene/mask.nii.gz face_scene/fs_epoch_labels.npy graph 0.8
+# python graph_generator.py face_scene bet.nii.gz face_scene/mask.nii.gz face_scene/fs_epoch_labels.npy graph 0.8
 if __name__ == '__main__':
     data_dir = sys.argv[1]
     extension = sys.argv[2]

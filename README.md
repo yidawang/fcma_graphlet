@@ -15,5 +15,5 @@ rm -f face_scene.zip
 Step 2: generate graph by applying some threshold `thres`
 
 ```sh
-python graph_generator.py face_scene/raw bet.nii.gz face_scene/mask.nii.gz face_scene/fs_epoch_labels.npy 0.8
+python graph_generator.py face_scene bet.nii.gz face_scene/mask.nii.gz face_scene/fs_epoch_labels.npy 0.8
 ```
