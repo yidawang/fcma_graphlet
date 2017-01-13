@@ -127,7 +127,7 @@ def generate_graph(raw_data, epoch_info, thres):
                     fp.write(str(indices[0][i]) + ' ' + str(indices[1][i]) + '\n')
         fp.close()
 
-# python graph_generator.py face_scene bet.nii.gz face_scene/mask.nii.gz face_scene/fs_epoch_labels.npy graph 0.8
+# python graph_generator.py face_scene bet.nii.gz face_scene/mask.nii.gz face_scene/fs_epoch_labels.npy 0.8
 if __name__ == '__main__':
     data_dir = sys.argv[1]
     extension = sys.argv[2]
