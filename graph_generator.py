@@ -1,7 +1,5 @@
-import nibabel as nib
 import os
 import sys
-import time
 import numpy as np
 import logging
 from brainiak.fcma.util import compute_correlation
